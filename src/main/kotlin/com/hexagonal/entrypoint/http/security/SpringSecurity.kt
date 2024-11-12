@@ -48,7 +48,7 @@ class SecurityConfig(
                         "/swagger-ui/**",
                         "/swagger-ui.html",
                     ).permitAll()
-//                    .requestMatchers("/posts/**").hasRole("ADMIN")
+                    .requestMatchers(*ADMIN_ROUTES).hasRole("ADMIN")
                     .anyRequest().authenticated()
             }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
