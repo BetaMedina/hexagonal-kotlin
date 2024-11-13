@@ -6,5 +6,5 @@ import org.springframework.data.domain.PageRequest
 
 interface PostRepositoryPort {
     fun getAll(pageable: PageRequest):PaginatedResult<PostCore>
-    fun savePost(post: PostCore): PostCore
+    fun savePost(post: PostCore): PostCore?
 }

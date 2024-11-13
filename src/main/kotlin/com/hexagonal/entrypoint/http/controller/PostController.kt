@@ -38,7 +38,7 @@ class PostController (private val postUseCase: PostPort){
     @PostMapping
     fun createPost(@RequestBody @Valid payload:PostSaveRequest): ResponseEntity<PostResponseDto>{
         val output = this.postUseCase.createPost(payload.toModel())
-        return ResponseEntity.ok(output.toResponse())
+        return ResponseEntity.ok(output?.toResponse())
     }
 
 }

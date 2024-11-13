@@ -1,10 +1,10 @@
-package com.hexagonal.infra.database.repository.impl
+package com.hexagonal.infra.database.mysql.repository.impl
 
 import com.hexagonal.core.enums.ClientStatusEnum
 import com.hexagonal.core.model.ClientCore
 import com.hexagonal.core.port.out.ClientRepositoryPort
-import com.hexagonal.infra.database.model.ClientDbModel
-import com.hexagonal.infra.database.repository.interfaces.ClientRepositoryInterface
+import com.hexagonal.infra.database.mysql.model.ClientDbModel
+import com.hexagonal.infra.database.mysql.repository.interfaces.ClientRepositoryInterface
 import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Repository
 import java.util.*
@@ -20,7 +20,8 @@ class UserRepositoryAdapter(
     }
 
     override fun save(client:ClientCore):ClientCore{
-        val output = this.springData.save(ClientDbModel(
+        val output = this.springData.save(
+            ClientDbModel(
             name = client.name,
             lastName = client.lastName,
             cpf = client.cpf,
@@ -28,7 +29,8 @@ class UserRepositoryAdapter(
             password = client.password,
             role = client.role
 
-        ))
+        )
+        )
         return output.toModel()
     }
 

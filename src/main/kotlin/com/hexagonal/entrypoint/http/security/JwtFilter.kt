@@ -3,7 +3,7 @@ package com.hexagonal.entrypoint.http.security
 import com.hexagonal.core.enums.ClientRolesEnum
 import com.hexagonal.core.port.out.ClientRepositoryPort
 import com.hexagonal.infra.adapters.JwtUtil
-import com.hexagonal.infra.database.model.ClientDbModel
+import com.hexagonal.infra.database.mysql.model.ClientDbModel
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse

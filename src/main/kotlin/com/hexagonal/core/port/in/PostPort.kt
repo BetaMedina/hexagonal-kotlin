@@ -6,5 +6,5 @@ import org.springframework.data.domain.Page
 
 interface PostPort {
     fun getPosts(page:Int,size:Int):PaginatedResult<PostCore>
-    fun createPost(body:PostCore):PostCore
+    fun createPost(body:PostCore):PostCore?
 }

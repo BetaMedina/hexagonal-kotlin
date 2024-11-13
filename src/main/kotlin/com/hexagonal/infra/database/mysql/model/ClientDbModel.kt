@@ -1,4 +1,4 @@
-package com.hexagonal.infra.database.model
+package com.hexagonal.infra.database.mysql.model
 
 import ch.qos.logback.core.net.server.Client
 import com.hexagonal.core.enums.ClientRolesEnum

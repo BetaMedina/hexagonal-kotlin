@@ -1,6 +1,7 @@
 package com.hexagonal.entrypoint.mappers
 
 import com.hexagonal.core.enums.ClientStatusEnum
+import com.hexagonal.core.model.AuthorPostCore
 import com.hexagonal.core.model.ClientCore
 import com.hexagonal.core.model.PostCore
 import com.hexagonal.entrypoint.http.dto.request.PostSaveRequest
@@ -13,10 +14,9 @@ fun PostCore.toResponse(): PostResponseDto {
         id = this.id,
         author = AuthorDto(
             id = this.author?.id,
-            cpf = this.author?.cpf,
             name = this.author?.name.toString(),
-            status = this.author?.status,
-            lastName = this.author?.lastName?: ""
+            lastName = this.author?.lastName?: "",
+            role = this.author?.role
         ),
         date = this.date,
         title = this.title,
@@ -28,13 +28,10 @@ fun PostCore.toResponse(): PostResponseDto {
 
 fun PostSaveRequest.toModel(): PostCore{
     return PostCore(
-        author = ClientCore(
+        author = AuthorPostCore(
             id = this.authorId,
-            cpf = "",
             name = "",
-            status = ClientStatusEnum.ACTIVE,
             lastName = "",
-            password = ""
         ),
         title = this.title,
         content = this.content,
